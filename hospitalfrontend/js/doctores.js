@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buscar = document.getElementById("buscar");
 
   const formEditar = document.getElementById("formEditar");
+  const modalEditar = new bootstrap.Modal(document.getElementById("modalEditar"));
 
   const obtenerDoctores = async () => {
     try {
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${doc.telefono}</td>
             <td>${doc.correo}</td>
             <td>
-              <button class="btn btn-warning btn-sm" onclick='editarDoctor(${JSON.stringify(doc)})'>Editar</button>
+              <button class="btn btn-warning btn-sm" onclick="editarDoctor(${doc.id}, '${doc.nombre}', '${doc.especialidad}', '${doc.telefono}', '${doc.correo}')">Editar</button>
               <button class="btn btn-danger btn-sm" onclick="eliminarDoctor(${doc.id})">Eliminar</button>
             </td>
           </tr>
@@ -55,14 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
     obtenerDoctores();
   };
 
-  window.editarDoctor = (doctor) => {
-    document.getElementById("edit-id").value = doctor.id;
-    document.getElementById("edit-nombre").value = doctor.nombre;
-    document.getElementById("edit-especialidad").value = doctor.especialidad;
-    document.getElementById("edit-telefono").value = doctor.telefono;
-    document.getElementById("edit-correo").value = doctor.correo;
-    const modal = new bootstrap.Modal(document.getElementById("modalEditar"));
-    modal.show();
+  window.editarDoctor = (id, nombre, especialidad, telefono, correo) => {
+    document.getElementById("edit-id").value = id;
+    document.getElementById("edit-nombre").value = nombre;
+    document.getElementById("edit-especialidad").value = especialidad;
+    document.getElementById("edit-telefono").value = telefono;
+    document.getElementById("edit-correo").value = correo;
+    modalEditar.show();
   };
 
   formEditar.addEventListener("submit", async e => {
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
       body: JSON.stringify(doctorEditado)
     });
 
+    modalEditar.hide();
     obtenerDoctores();
-    bootstrap.Modal.getInstance(document.getElementById("modalEditar")).hide();
   });
 
   buscar.addEventListener("input", async () => {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>${doc.telefono}</td>
           <td>${doc.correo}</td>
           <td>
-            <button class="btn btn-warning btn-sm" onclick='editarDoctor(${JSON.stringify(doc)})'>Editar</button>
+            <button class="btn btn-warning btn-sm" onclick="editarDoctor(${doc.id}, '${doc.nombre}', '${doc.especialidad}', '${doc.telefono}', '${doc.correo}')">Editar</button>
             <button class="btn btn-danger btn-sm" onclick="eliminarDoctor(${doc.id})">Eliminar</button>
           </td>
         </tr>
