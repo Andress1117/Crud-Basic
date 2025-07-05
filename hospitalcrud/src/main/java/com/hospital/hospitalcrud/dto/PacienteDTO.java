@@ -1,21 +1,11 @@
-package com.hospital.hospitalcrud.entidad;
+package com.hospital.hospitalcrud.dto;
 
-import jakarta.persistence.*;
+public class PacienteDTO {
 
-@Entity
-@Table(name = "pacientes")
-public class Paciente {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
-
     private int edad;
-
     private String genero;
-
     private String diagnostico;
 
     // Getters y Setters
