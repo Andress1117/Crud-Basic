@@ -1,11 +1,13 @@
-/* Fuente limpia y moderna */
+/* Fuente y fondo general */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f9ff;
   margin: 0;
   padding: 0;
+  color: #222;
 }
 
+/* Contenedor principal */
 .container {
   max-width: 900px;
   margin: 30px auto;
@@ -15,31 +17,7 @@ body {
   border-radius: 12px;
 }
 
-h1 {
-  text-align: center;
-  color: #2b5d8c;
-  margin-bottom: 30px;
-}
-
-#btnAgregar {
-  background-color: #2b5d8c;
-  color: #fff;
-  margin-bottom: 20px;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-#btnAgregar:hover {
-  background-color: #1d4567;
-}
-
-.table {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
+/* Tabla */
 .table th {
   background-color: #2b5d8c;
   color: white;
@@ -51,12 +29,22 @@ h1 {
   vertical-align: middle;
 }
 
+/* Botones */
+.btn-primary {
+  background-color: #2b5d8c;
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-primary:hover {
+  background-color: #1d4567;
+}
+
 .btn-warning {
   background-color: #ffc107;
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
   color: #212529;
+  border-radius: 6px;
 }
 
 .btn-warning:hover {
@@ -66,15 +54,19 @@ h1 {
 .btn-danger {
   background-color: #dc3545;
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
   color: white;
+  border-radius: 6px;
 }
 
 .btn-danger:hover {
   background-color: #b02a37;
 }
 
+.btn-success {
+  border-radius: 6px;
+}
+
+/* Modal */
 .modal-content {
   border-radius: 10px;
 }
@@ -86,21 +78,18 @@ h1 {
   border-top-right-radius: 10px;
 }
 
-.modal-footer .btn {
-  border-radius: 6px;
-}
-
 form .form-label {
   font-weight: bold;
   color: #2b5d8c;
 }
 
-form .form-control, form .form-select {
+form .form-control,
+form .form-select {
   border-radius: 8px;
   padding: 8px;
 }
 
-/* Navbar personalizada como imagen */
+/* NAVBAR personalizada igual a gestion.html */
 .navbar-personalizada {
   background-color: #007bff;
   padding: 20px 0;
