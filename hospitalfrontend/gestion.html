@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestión Hospitalaria</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar-personalizada">
+    <div class="navbar-caja">
+      <a class="navbar-marca" href="index.html">Hospital General</a>
+      <div class="navbar-enlaces">
+        <a href="index.html">Inicio</a>
+        <a href="gestion.html">Gestión</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO HEADER -->
+  <header class="hero d-flex align-items-center text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold text-white">Panel de Gestión</h1>
+      <p class="lead text-white mb-4">Administra fácilmente toda la información hospitalaria</p>
+    </div>
+  </header>
+
+  <!-- GESTIÓN CARDS -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 text-center">
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Pacientes</h5>
+              <p class="card-text">Gestiona los datos de los pacientes registrados.</p>
+              <a href="pacientes.html" class="btn btn-primary">Ir a Pacientes</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Doctores</h5>
+              <p class="card-text">Administra la información de los doctores del hospital.</p>
+              <a href="doctores.html" class="btn btn-primary">Ir a Doctores</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-primary">Citas Médicas</h5>
+              <p class="card-text">Controla la programación y edición de las citas médicas.</p>
+              <a href="citas.html" class="btn btn-primary">Ir a Citas</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-4 bg-light text-muted">
+    <p>&copy; 2025 Hospital General - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

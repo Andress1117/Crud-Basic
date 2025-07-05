@@ -1,10 +1,10 @@
-/* Fuente y fondo */
+/* Fuente general */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
-  color: #222;
   margin: 0;
   padding: 0;
+  color: #222;
 }
 
 /* NAVBAR */
@@ -43,14 +43,14 @@ body {
 }
 
 .navbar-enlaces a:hover {
-  color: #007bff;
+  color: #004a99;
   text-decoration: underline;
 }
 
-/* ENCABEZADO */
+/* HERO ENCABEZADO */
 .hero {
-  background: linear-gradient(135deg, #007bff, #007bff);
-  height: 300px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,25 +58,45 @@ body {
 }
 
 .hero h1 {
-  color: white;
+  color: #fff;
   font-weight: bold;
   font-size: 2.8rem;
 }
 
 .hero p {
   color: #e0e0e0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
-/* INFO SECTION */
-.info h5 {
-  color: #007bff;
+/* SECCIÓN DE CARDS */
+section .card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+.card-title {
   font-weight: bold;
+  color: #007bff;
 }
 
-.info p {
+.card-text {
   color: #444;
-  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }
 
 /* FOOTER */
@@ -84,4 +104,5 @@ footer {
   font-size: 0.95rem;
   background-color: #f8f9fa;
   color: #555;
+  margin-top: 50px;
 }
