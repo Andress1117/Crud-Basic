@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Medicamentos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/medicamentos.css">
+</head>
+
+<body>
+  <!-- Navbar personalizada -->
+  <nav class="navbar-personalizada">
+    <div class="navbar-caja">
+      <a class="navbar-marca" href="index.html">Hospital General</a>
+      <div class="navbar-enlaces">
+        <a href="index.html">Inicio</a>
+        <a href="gestion.html">Gestión</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Gestión de Medicamentos</h2>
+
+    <form id="formulario">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre del medicamento" required>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="dosis" required>
+            <option value="">Seleccione dosis</option>
+            <option value="250 mg">250 mg</option>
+            <option value="500 mg">500 mg</option>
+            <option value="750 mg">750 mg</option>
+            <option value="1 g">1 g</option>
+            <option value="5 ml">5 ml</option>
+            <option value="10 ml">10 ml</option>
+            <option value="1 tableta">1 tableta</option>
+            <option value="2 tabletas">2 tabletas</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input type="text" class="form-control" id="indicaciones" placeholder="Indicaciones" required>
+        </div>
+        <div class="col-md-3">
+          <input type="date" class="form-control" id="vencimiento" required>
+        </div>
+      </div>
+      <div class="text-end mt-3">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+
+    <hr>
+
+    <input type="text" id="buscar" class="form-control mb-3" placeholder="Buscar por nombre">
+
+    <table class="table table-bordered text-center">
+      <thead class="table-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Dosis</th>
+          <th>Indicaciones</th>
+          <th>Vencimiento</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla"></tbody>
+    </table>
+  </div>
+
+  <!-- Modal editar -->
+  <div class="modal fade" id="modalEditar" tabindex="-1">
+    <div class="modal-dialog">
+      <form class="modal-content" id="formEditar">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar Medicamento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="edit-id">
+          <div class="mb-3">
+            <label for="edit-nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="edit-nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-dosis" class="form-label">Dosis</label>
+            <select class="form-select" id="edit-dosis" required>
+              <option value="">Seleccione dosis</option>
+              <option value="250 mg">250 mg</option>
+              <option value="500 mg">500 mg</option>
+              <option value="750 mg">750 mg</option>
+              <option value="1 g">1 g</option>
+              <option value="5 ml">5 ml</option>
+              <option value="10 ml">10 ml</option>
+              <option value="1 tableta">1 tableta</option>
+              <option value="2 tabletas">2 tabletas</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="edit-indicaciones" class="form-label">Indicaciones</label>
+            <input type="text" class="form-control" id="edit-indicaciones" required>
+          </div>
+          <div class="mb-3">
+            <label for="edit-vencimiento" class="form-label">Vencimiento</label>
+            <input type="date" class="form-control" id="edit-vencimiento" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Actualizar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/medicamentos.js"></script>
+</body>
+
+</html>
