@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.hospital.hospitalcrud.servicio.MiUsuarioDetailsService;
+import com.hospital.hospitalcrud.servicio.DetallesUsuarioService;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.IOException;
@@ -23,7 +23,13 @@ public class JWTFilter extends OncePerRequestFilter {
     private JWTService jwtService;
 
     @Autowired
-    private MiUsuarioDetailsService usuarioDetailsService;
+    private DetallesUsuarioService detallesUsuarioService;
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) {
+        String path = request.getServletPath();
+        return path.startsWith("/api/auth");
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -36,14 +42,13 @@ public class JWTFilter extends OncePerRequestFilter {
             String username = jwtService.obtenerUsernameDelToken(token);
 
             if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = usuarioDetailsService.loadUserByUsername(username);
+                UserDetails userDetails = detallesUsuarioService.loadUserByUsername(username);
 
                 if (jwtService.validarToken(token)) {
                     UsernamePasswordAuthenticationToken auth =
                             new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 
                     auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
                     SecurityContextHolder.getContext().setAuthentication(auth);
                 }
             }

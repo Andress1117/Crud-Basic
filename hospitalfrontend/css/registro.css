@@ -1,0 +1,28 @@
+body {
+    background-color: #e6f0f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registro-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    text-align: center;
+    color: #2b5d8c;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    background-color: #2b5d8c;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #1d4567;
+}

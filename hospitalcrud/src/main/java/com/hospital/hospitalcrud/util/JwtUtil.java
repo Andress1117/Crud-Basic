@@ -1,14 +1,11 @@
 package com.hospital.hospitalcrud.util;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
-import java.util.function.Function;
 
 @Component
 public class JwtUtil {
@@ -16,11 +13,10 @@ public class JwtUtil {
     @Value("${jwt.secret}")
     private String secret;
 
-    @Value("${jwt.expiration}")
-    private Long expiration;
+    @Value("${jwt.expiration}") // ← CORREGIDO: antes decía 'expiracion'
+    private long expiration;
 
-    // Generar token
-    public String generarToken(UserDetails userDetails) {
+    public String generateToken(UserDetails userDetails) {
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())
@@ -29,33 +25,23 @@ public class JwtUtil {
                 .compact();
     }
 
-    // Extraer username del token
-    public String extraerUsername(String token) {
-        return extraerReclamacion(token, Claims::getSubject);
-    }
-
-    // Verificar si el token es válido
-    public boolean validarToken(String token, UserDetails userDetails) {
-        final String username = extraerUsername(token);
-        return (username.equals(userDetails.getUsername()) && !estaExpirado(token));
-    }
-
-    // Verifica si el token expiró
-    private boolean estaExpirado(String token) {
-        return extraerFechaExpiracion(token).before(new Date());
-    }
-
-    // Obtener fecha de expiración
-    private Date extraerFechaExpiracion(String token) {
-        return extraerReclamacion(token, Claims::getExpiration);
-    }
-
-    // Obtener cualquier dato del token
-    private <T> T extraerReclamacion(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = Jwts.parser()
-                .setSigningKey(secret)
+    public String extractUsername(String token) {
+        return Jwts.parser().setSigningKey(secret)
                 .parseClaimsJws(token)
-                .getBody();
-        return claimsResolver.apply(claims);
+                .getBody()
+                .getSubject();
+    }
+
+    public boolean validateToken(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+
+    private boolean isTokenExpired(String token) {
+        final Date expiration = Jwts.parser().setSigningKey(secret)
+                .parseClaimsJws(token)
+                .getBody()
+                .getExpiration();
+        return expiration.before(new Date());
     }
 }
