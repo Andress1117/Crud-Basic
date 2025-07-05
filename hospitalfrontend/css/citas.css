@@ -19,7 +19,7 @@ body {
 
 /* Tabla de citas */
 .table th {
-  background-color: #2b5d8c;
+  background-color: #007bff;
   color: white;
   text-align: center;
 }
@@ -31,13 +31,13 @@ body {
 
 /* Botones */
 .btn-primary {
-  background-color: #2b5d8c;
+  background-color: #007bff;
   border: none;
   border-radius: 6px;
 }
 
 .btn-primary:hover {
-  background-color: #1d4567;
+  background-color: #007bff;
 }
 
 .btn-success {
@@ -61,7 +61,7 @@ body {
 }
 
 .modal-header {
-  background-color: #2b5d8c;
+  background-color: #007bff;
   color: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -74,7 +74,7 @@ body {
 /* Formularios */
 form .form-label {
   font-weight: bold;
-  color: #2b5d8c;
+  color: #007bff;
 }
 
 form .form-control,
@@ -106,19 +106,19 @@ form .form-select {
 .navbar-marca {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2b5d8c;
+  color: #007bff;
   text-decoration: none;
 }
 
 .navbar-enlaces a {
   margin-left: 20px;
-  color: #2b5d8c;
+  color: #007bff;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbar-enlaces a:hover {
-  color: #1a3b5d;
+  color: #007bff;
   text-decoration: underline;
 }
